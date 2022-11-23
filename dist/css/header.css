@@ -3,7 +3,6 @@
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
-  background: #6725A8;
   align-items: center;
 }
 
@@ -12,10 +11,47 @@
   justify-content: space-between;
 }
 
-.header__burger {
+.header__about {
   display: flex;
-  justify-content: space-between;
   width: 15%;
+  justify-content: space-between;
+}
+
+.header__burger {
+  display: block;
+  position: relative; /* задаем относительное позиционирование */
+  width: 48px; /* определяем размеры блока */
+  height: 48px;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  margin-left: 10px;
+}
+
+.header__burger span, .header__burger:after, .header__burger:before{
+  height: 3px;
+  width: 70%;
+  position: absolute;
+  background: #FFFFFF;
+  margin: 0 auto;
+}
+.header__burger span{
+  top: 22px;
+  left: 7px;
+  height: 3px;
+  border: none;
+}
+.header__burger:after, .header__burger:before{
+  content: '';
+}
+.header__burger:after{
+  top: 34px;
+  bottom: 5px;
+  left: 7px;
+}
+.header__burger:before{
+  top: 10px;
+  left: 7px;
 }
 
 .header__title {
@@ -29,7 +65,7 @@
 .header__input {
   position: relative;
   padding-left: 32px;
-  width: 30%;
+  width: 50%;
 }
 
 .header__input:before {
@@ -87,7 +123,7 @@
 
 .ui__basket-amount {
   position: absolute;
-  top: -8px;
+  top: -2px;
   left: 39px;
   bottom: 0;
   width: 15px;
