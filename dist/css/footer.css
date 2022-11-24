@@ -1,3 +1,7 @@
+.footer__container-mobile {
+  display: none;
+}
+
 .footer {
   padding-top: 24px;
   padding-bottom: 24px;
