@@ -1,11 +1,11 @@
 .recipient {
-  width: 49%;
   margin-top: 40px;
   padding-bottom: 40px;
 }
 
 .recipient__container {
   padding: 16px 24px;
+  width: 60%;
   border-radius: 16px;
   background: var(--white);
 }

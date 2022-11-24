@@ -1,0 +1,34 @@
+@media(max-width:1200px) {
+  .basket__total {
+    width: 310px;
+  }
+
+  .basket__basket {
+    width: 65%;
+  }
+
+  .basket__total {
+    margin-left: auto;
+  }
+
+  .delivery__container, .payment__container, .recipient__container {
+    width: 65%;
+  }
+}
+@media(max-width:1000px) {
+  .basket__total {
+    display: none;
+  }
+
+  .basket__basket {
+    width: 100%;
+  }
+
+  .basket__total {
+    margin-left: auto;
+  }
+
+  .delivery__container, .payment__container, .recipient__container {
+    width: 100%;
+  }
+}
