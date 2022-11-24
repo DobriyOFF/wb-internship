@@ -34,7 +34,7 @@
 }
 
 
-@media(max-width: 320px) {
+@media(max-width: 420px) {
   .container__mobile {
     padding: 0;
   }
@@ -119,9 +119,10 @@
   }
 
   .basket__label-checkbox + label::before {
-    margin-right: 0;
-    transform: translate(-129px, 26px);
+    margin-right: auto;
+    margin-left: 2px;
     background-color: white;
+    transform: translateY(26px);
   }
 
   .item__product {
@@ -244,7 +245,9 @@
   }
 
   .basket__label-checkbox:checked+label::before {
-    transform: translate(-129px, 26px);
+    margin-right: auto;
+    margin-left: 2px;
+    transform: translateY(26px);
   }
 
   .item__product-img {
