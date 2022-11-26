@@ -1,16 +1,28 @@
 const serviceScroll = () => {
     //const mobileMenu = document.querySelector('.mobile-menu')
+    const recipientName = document.querySelector('.recipient__form-name');
+    const recipientSurname = document.querySelector('.recipient__form-surname');
+    const recipientEmail = document.querySelector('.recipient__form-email');
+    const recipientPhone = document.querySelector('.recipient__form-phone');
+    const recipientInn = document.querySelector('.recipient__form-inn');
+    const agreeChecbox = document.getElementById('agreeMount');
 
     const toggleMenu = (e) => {
-        if (e.target.closest('.header__primary-nav') || e.target.closest('.footer__menu')) {
-            if (e.target.matches('ul>li>a')) {
+        if (e.target.closest('.total__order-btn') || e.target.closest('.footer__menu')) {
+            if (e.target.matches('button')) {
+                console.log()
                 e.preventDefault();
                 const id = e.target.getAttribute('href');
-                document.querySelector(id).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                if (recipientName.value != '' && recipientSurname.value != '' && recipientEmail.value != '' && recipientPhone.value != '' && recipientInn.value != '' && agreeChecbox.checked) {
+
+                } else {
+                    document.querySelector(id).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
+
         }
         // if (e.target.closest('.mob-menu-btn')) {
         //     e.preventDefault()
