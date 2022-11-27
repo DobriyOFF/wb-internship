@@ -10,10 +10,9 @@ const serviceScroll = () => {
     const toggleMenu = (e) => {
         if (e.target.closest('.total__order-btn') || e.target.closest('.footer__menu')) {
             if (e.target.matches('button')) {
-                console.log()
                 e.preventDefault();
                 const id = e.target.getAttribute('href');
-                if (recipientName.value != '' && recipientSurname.value != '' && recipientEmail.value != '' && recipientPhone.value != '' && recipientInn.value != '' && agreeChecbox.checked) {
+                if (recipientName.value !== '' && recipientSurname.value !== '' && recipientEmail.value !== '' && recipientPhone.value !== '' && recipientInn.value !== '' && agreeChecbox.checked) {
 
                 } else {
                     document.querySelector(id).scrollIntoView({

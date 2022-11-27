@@ -12,6 +12,7 @@ const validateForms = () => {
     const telError = document.getElementById('telError')
     const innError = document.getElementById('innError')
     const paymentLabel = document.querySelector('.payment__permanent-label')
+    const paymentPermanent = document.getElementById('paymentPermanent');
 
     totalBtn.forEach(item => {
         item.addEventListener('click', () => {
@@ -36,7 +37,11 @@ const validateForms = () => {
                 innError.textContent = 'Укажите индекс'
                 recipientInn.style.color = '#F55123'
                 recipientInn.style.borderColor = '#F55123'
-                paymentLabel.style.color = '#F55123'
+                if (paymentPermanent.checked) {
+
+                } else {
+                    paymentLabel.style.color = '#F55123'
+                }
             }
         })
     })
@@ -92,10 +97,8 @@ const validateForms = () => {
                     item.firstElementChild.style.borderColor = '#F55123'
                 }
             } else if (item.firstElementChild.matches('.recipient__form-phone')) {
-                console.log()
                 if (/[^\d\(\)\-]/gi.exec(item.firstElementChild.value)) {
                     item.lastElementChild.style.display = 'inline-block'
-                    console.log(item.lastElementChild.style.textContent)
                     item.lastElementChild.style.textContent = 'Формат: +9 999 999 99 99'
                     item.firstElementChild.style.color = '#F55123'
                     item.firstElementChild.style.borderColor = '#F55123'

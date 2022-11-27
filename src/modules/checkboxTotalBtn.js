@@ -7,7 +7,7 @@ const checkboxTotalBtn = () => {
 
     paymentLabel.addEventListener('click', () => {
         paymentPermanent.checked = paymentPermanent.checked !== false;
-
+        paymentLabel.style.color = 'black';
         if (paymentPermanent.checked === false) {
             totalOrderBtn.textContent = 'Оплатить ' + totalPrice.textContent + ' ' + totalCurrency.textContent
         } else {

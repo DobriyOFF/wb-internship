@@ -10,7 +10,6 @@ const basketBtn = () => {
     let countCheckBox = basketCheckbox.length;
     let countCheckedTrue = 0;
 
-
     basketCheckbox.forEach(item => {
         item.addEventListener('click', () => {
             for (item of basketCheckbox) {
@@ -33,7 +32,6 @@ const basketBtn = () => {
     basketBtnDecorate.forEach(item => {
         item.addEventListener('click', () => {
             item.classList.toggle('active');
-            console.log(basketListFirst)
         })
     })
 
