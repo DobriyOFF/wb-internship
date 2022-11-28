@@ -2,28 +2,29 @@ const basketCost = () => {
     const totalPrice = document.getElementById('totalPrice');
     const productPriceTitle = document.querySelectorAll('.product__price-title')
     const basketLabel = document.querySelectorAll('.product__wrapper')
+    const totalItemPrice = document.querySelector('.total__item-price');
 
     function domObserver(el, callback){
-        var done = function (){ callback(el); };
-        var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+        let done = function (){ callback(el); };
+        let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 
         if( MutationObserver ){
-            var observer = new MutationObserver(done);
+            let observer = new MutationObserver(done);
             observer.observe(el, { childList: true });
         }
         else if( el.addEventListener ){
             el.addEventListener('DOMNodeInserted', done, false);
         }
         else {
-            var html = el.innerHTML;
+            let html = el.innerHTML;
             setInterval(function (){
-                if( html != el.innerHTML ){
+                if (html != el.innerHTML ){
                     html = el.innerHTML;
                     done();
                 }
             }, 300);
         }
-    };
+    }
     let count = 1;
 
     basketLabel.forEach(item => {
@@ -38,6 +39,7 @@ const basketCost = () => {
         }
         fullPrice = String(fullPrice);
         totalPrice.textContent = fullPrice.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+        totalItemPrice.textContent = totalPrice.textContent
     }
 
     for (let item of basketLabel) {
@@ -46,6 +48,7 @@ const basketCost = () => {
         });
     }
 
+    sumTotal()
 }
 
 export default basketCost
