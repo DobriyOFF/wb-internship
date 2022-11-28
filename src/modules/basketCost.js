@@ -1,8 +1,10 @@
 const basketCost = () => {
     const totalPrice = document.getElementById('totalPrice');
-    const productPriceTitle = document.querySelectorAll('.product__price-title')
     const basketLabel = document.querySelectorAll('.product__wrapper')
     const totalItemPrice = document.querySelector('.total__item-price');
+    const productPriceDesc = document.querySelectorAll('.product__price-desc-main')
+    const totalItemDiscount = document.getElementById('totalDiscount');
+
 
     function domObserver(el, callback){
         let done = function (){ callback(el); };
@@ -42,13 +44,24 @@ const basketCost = () => {
         totalItemPrice.textContent = totalPrice.textContent
     }
 
+    let sumTotalDiscount = () => {
+        let fullPriceDiscount = 0;
+        for (let item of productPriceDesc) {
+            fullPriceDiscount += +item.textContent.replace(/ /g,'').match(/\d+/);
+        }
+        fullPriceDiscount = String(fullPriceDiscount);
+        totalItemDiscount.textContent = '-' + fullPriceDiscount.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+    }
+
     for (let item of basketLabel) {
         domObserver(document.getElementById(item.firstElementChild.id), function (el){
             sumTotal()
+            sumTotalDiscount()
         });
     }
 
     sumTotal()
+    sumTotalDiscount()
 }
 
 export default basketCost

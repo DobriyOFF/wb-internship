@@ -5,7 +5,6 @@ const tooltip = () => {
     const productPrice = document.querySelectorAll('.product__price');
 
     infoFree.forEach(item => {
-        console.log(item)
         tooltipInfoFree.forEach(el => {
             item.addEventListener('mouseover', () => {
                 el.style.display = 'inline-block'
