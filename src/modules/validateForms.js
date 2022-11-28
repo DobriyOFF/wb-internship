@@ -99,7 +99,7 @@ const validateForms = () => {
             } else if (item.firstElementChild.matches('.recipient__form-phone')) {
                 if (/[^\d\(\)\-]/gi.exec(item.firstElementChild.value)) {
                     item.lastElementChild.style.display = 'inline-block'
-                    item.lastElementChild.style.textContent = 'Формат: +9 999 999 99 99'
+                    item.lastElementChild.textContent = 'Формат: +9 999 999 99 99'
                     item.firstElementChild.style.color = '#F55123'
                     item.firstElementChild.style.borderColor = '#F55123'
                 } else {
@@ -110,11 +110,14 @@ const validateForms = () => {
             } else if (item.firstElementChild.matches('.recipient__form-inn')) {
                 if (/[^\d\(\)\-]/gi.exec(item.firstElementChild.value)) {
                     item.lastElementChild.style.display = 'inline-block'
-                    item.lastElementChild.style.textContent = 'Формат: +9 999 999 99 99'
+                    item.lastElementChild.textContent = 'Формат: 1234567'
+                    item.lastElementChild.style.color = '#F55123'
                     item.firstElementChild.style.color = '#F55123'
                     item.firstElementChild.style.borderColor = '#F55123'
                 } else {
-                    item.lastElementChild.style.display = 'none'
+                    item.lastElementChild.style.display = 'inline-block'
+                    item.lastElementChild.textContent = 'Для таможенного оформления'
+                    item.lastElementChild.style.color = 'black'
                     item.firstElementChild.style.color = '#A0A0A4'
                     item.firstElementChild.style.borderColor = 'rgba(0, 0, 0, 0.2)'
                 }
