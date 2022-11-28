@@ -1,3 +1,7 @@
+import {
+    animate
+} from "./helper";
+
 const basketCost = () => {
     const totalPrice = document.getElementById('totalPrice');
     const basketLabel = document.querySelectorAll('.product__wrapper')
@@ -35,22 +39,57 @@ const basketCost = () => {
     })
 
     let sumTotal = () => {
+        let startAnimateValue, targetAnimateValue;
         let fullPrice = 0;
+
         for (let item of basketLabel) {
             fullPrice += +item.firstElementChild.textContent.replace(/ /g,'');
+            startAnimateValue = +fullPrice - +item.firstElementChild.textContent.replace(/ /g,'');
         }
+
         fullPrice = String(fullPrice);
         totalPrice.textContent = fullPrice.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
         totalItemPrice.textContent = totalPrice.textContent
+
+        targetAnimateValue = Number(totalPrice.textContent.replace(/ /g,''));
+
+        animate({
+            duration: 400,
+            timing: (timeFraction) => timeFraction,
+            draw(progress) {
+                totalPrice.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+            },
+        });
+        animate({
+            duration: 400,
+            timing: (timeFraction) => timeFraction,
+            draw(progress) {
+                totalItemPrice.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+            },
+        });
     }
 
     let sumTotalDiscount = () => {
         let fullPriceDiscount = 0;
+        let startAnimateValue, targetAnimateValue;
+
         for (let item of productPriceDesc) {
             fullPriceDiscount += +item.textContent.replace(/ /g,'').match(/\d+/);
+            startAnimateValue = +fullPriceDiscount - +item.textContent.replace(/ /g,'').match(/\d+/);
         }
         fullPriceDiscount = String(fullPriceDiscount);
-        totalItemDiscount.textContent = '-' + fullPriceDiscount.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+        totalItemDiscount.textContent = fullPriceDiscount.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
+
+        targetAnimateValue = Number(totalItemDiscount.textContent.replace(/ /g,''));
+
+        animate({
+            duration: 400,
+            timing: (timeFraction) => timeFraction,
+            draw(progress) {
+                totalItemDiscount.textContent = '-' + (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+            },
+        });
+
     }
 
     for (let item of basketLabel) {

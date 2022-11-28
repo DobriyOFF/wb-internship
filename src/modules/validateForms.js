@@ -13,6 +13,8 @@ const validateForms = () => {
     const innError = document.getElementById('innError')
     const paymentLabel = document.querySelector('.payment__permanent-label')
     const paymentPermanent = document.getElementById('paymentPermanent');
+    const recipientHintsTel = document.querySelector('.recipient__hints-tel');
+
 
     totalBtn.forEach(item => {
         item.addEventListener('click', () => {
@@ -97,15 +99,17 @@ const validateForms = () => {
                     item.firstElementChild.style.borderColor = '#F55123'
                 }
             } else if (item.firstElementChild.matches('.recipient__form-phone')) {
-                if (/[^\d\(\)\-]/gi.exec(item.firstElementChild.value)) {
+                if (/^[\+]\d{1}[- ]?[\(]?\d{3}[\)]?[- ]?\d{3}[\- ]?\d{2}[\- ]?\d{2}$/.exec(item.firstElementChild.value)) {
+                    item.lastElementChild.style.display = 'none'
+                    recipientHintsTel.style.display = 'inline-block'
+                    item.firstElementChild.style.color = '#A0A0A4'
+                    item.firstElementChild.style.borderColor = 'rgba(0, 0, 0, 0.2)'
+                } else {
                     item.lastElementChild.style.display = 'inline-block'
+                    recipientHintsTel.style.display = 'none';
                     item.lastElementChild.textContent = 'Формат: +9 999 999 99 99'
                     item.firstElementChild.style.color = '#F55123'
                     item.firstElementChild.style.borderColor = '#F55123'
-                } else {
-                    item.lastElementChild.style.display = 'none'
-                    item.firstElementChild.style.color = '#A0A0A4'
-                    item.firstElementChild.style.borderColor = 'rgba(0, 0, 0, 0.2)'
                 }
             } else if (item.firstElementChild.matches('.recipient__form-inn')) {
                 if (/[^\d\(\)\-]/gi.exec(item.firstElementChild.value)) {

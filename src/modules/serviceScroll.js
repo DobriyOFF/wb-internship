@@ -6,6 +6,7 @@ const serviceScroll = () => {
     const recipientPhone = document.querySelector('.recipient__form-phone');
     const recipientInn = document.querySelector('.recipient__form-inn');
     const agreeChecbox = document.getElementById('agreeMount');
+    const recipientHintsTel = document.querySelector('.recipient__hints-tel');
 
     const toggleMenu = (e) => {
         if (e.target.closest('.total__order-btn') || e.target.closest('.footer__menu')) {
@@ -15,6 +16,7 @@ const serviceScroll = () => {
                 if (recipientName.value !== '' && recipientSurname.value !== '' && recipientEmail.value !== '' && recipientPhone.value !== '' && recipientInn.value !== '' && agreeChecbox.checked) {
 
                 } else {
+                    recipientHintsTel.style.display = 'none';
                     document.querySelector(id).scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'

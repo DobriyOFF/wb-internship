@@ -17,6 +17,7 @@ const quantityGoods = () => {
         let startTotalCostDiscountItem;
         let totalCostDiscountItemPerson;
         let startTotalCostDiscountItemPerson;
+        let totalCostMobile;
 
         if (el.children[3] != null) {
             input = el.children[3].children[0].children[0];
@@ -39,6 +40,9 @@ const quantityGoods = () => {
         if (el.children[4] != null && el.children[4].children[0].children[0].textContent != null) {
             totalCostDiscountItemPerson = el.children[4].children[2].children[1].children[1].children[0];
         }
+        if (el.children[2] != null && el.children[2].children[0] != null && el.children[2].children[0].children[0] != null) {
+            totalCostMobile = el.children[2].children[0].children[0];
+        }
         if (el.children[3] != null) {
             maxLeftText = el.children[3].children[0].querySelector('.product__pieces-left');
         }
@@ -53,6 +57,7 @@ const quantityGoods = () => {
             startTotalCostDiscountItemPerson = Math.round((totalCost.textContent / +input.value) * 0.10);
 
             totalCost.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
+            totalCostMobile.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
 
             totalCostDiscount.textContent = +input.value * startTotalCostDiscount;
             totalCostDiscount.textContent = totalCostDiscount.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
@@ -62,7 +67,6 @@ const quantityGoods = () => {
 
             totalCostDiscountItemPerson.textContent = +input.value * startTotalCostDiscountItemPerson;
             totalCostDiscountItemPerson.textContent = totalCostDiscountItemPerson.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
-
 
             if (maxLeft != null) {
                 maxLeft = +input.value + +maxLeft.textContent;
@@ -76,6 +80,7 @@ const quantityGoods = () => {
                     totalCostDiscount.textContent = totalCost.textContent.replace(/ /g,'')
                     if (input.value == 0) {
                         totalCost.textContent = startTotalCost;
+                        totalCostMobile.textContent = startTotalCost;
                         totalCostDiscount.textContent = startTotalCostDiscount;
                     } else {
                         totalCost.textContent = +totalCost.textContent + +startTotalCost;
@@ -87,6 +92,7 @@ const quantityGoods = () => {
                         totalCostDiscountItemPerson.textContent = totalCostDiscountItemPerson.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
 
                         totalCost.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
+                        totalCostMobile.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
                     }
                     input.value = +input.value + 1;
                     if (maxLeftText != null) {
@@ -102,10 +108,12 @@ const quantityGoods = () => {
                     input.value = +input.value - 1;
                     if (input.value < 1) {
                         totalCost.textContent = '0';
+                        totalCostMobile.textContent = '0';
                         totalCostDiscount.textContent = '0';
                     }  else {
                         totalCost.textContent = +totalCost.textContent - startTotalCost;
                         totalCost.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
+                        totalCostMobile.textContent = totalCost.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
                         totalCostDiscount.textContent = +startTotalCostDiscount * +input.value;
                         totalCostDiscount.textContent = totalCostDiscount.textContent.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ")
                         totalCostDiscountItem.textContent = +startTotalCostDiscountItem * +input.value;
