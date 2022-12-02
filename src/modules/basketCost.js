@@ -4,10 +4,13 @@ import {
 
 const basketCost = () => {
     const totalPrice = document.getElementById('totalPrice');
+    const totalPriceMobile = document.getElementById('totalPriceMobile');
     const basketLabel = document.querySelectorAll('.product__wrapper')
     const totalItemPrice = document.querySelector('.total__item-price');
+    const totalItemPriceMobile = document.getElementById('totalItemPriceMobile');
     const productPriceDesc = document.querySelectorAll('.product__price-desc-main')
     const totalItemDiscount = document.getElementById('totalDiscount');
+    const totalDiscountMobile = document.getElementById('totalDiscountMobile');
 
 
     function domObserver(el, callback){
@@ -58,6 +61,8 @@ const basketCost = () => {
             timing: (timeFraction) => timeFraction,
             draw(progress) {
                 totalPrice.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+                totalPriceMobile.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+
             },
         });
         animate({
@@ -65,7 +70,8 @@ const basketCost = () => {
             timing: (timeFraction) => timeFraction,
             draw(progress) {
                 totalItemPrice.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
-            },
+                totalItemPriceMobile.textContent = (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+                },
         });
     }
 
@@ -87,7 +93,8 @@ const basketCost = () => {
             timing: (timeFraction) => timeFraction,
             draw(progress) {
                 totalItemDiscount.textContent = '-' + (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
-            },
+                totalDiscountMobile.textContent = '-' + (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
+                },
         });
 
     }
