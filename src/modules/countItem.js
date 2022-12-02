@@ -24,41 +24,6 @@ const basketCost = () => {
         }
     }
     let count = 1;
-
-    termsCardItem.forEach(item => {
-        console.log(item)
-        // item.firstElementChild.id = 'count' + count;
-        // count++;
-    })
-
-
-    // let sumTotalDiscount = () => {
-    //     let fullPriceDiscount = 0;
-    //     let startAnimateValue, targetAnimateValue;
-    //
-    //     for (let item of productPriceDesc) {
-    //         fullPriceDiscount += +item.textContent.replace(/ /g,'').match(/\d+/);
-    //         startAnimateValue = +fullPriceDiscount - +item.textContent.replace(/ /g,'').match(/\d+/);
-    //     }
-    //     fullPriceDiscount = String(fullPriceDiscount);
-    //     totalItemDiscount.textContent = fullPriceDiscount.replace(/(\d)(?=(\d{3})+([^\d]|$))/g, "$1 ");
-    //
-    //     targetAnimateValue = Number(totalItemDiscount.textContent.replace(/ /g,''));
-    //
-    //     animate({
-    //         duration: 400,
-    //         timing: (timeFraction) => timeFraction,
-    //         draw(progress) {
-    //             totalItemDiscount.textContent = '-' + (startAnimateValue + Math.round((targetAnimateValue - startAnimateValue) * progress)).toLocaleString();
-    //         },
-    //     });
-    //
-    // }
-
-    // for (let item of basketLabel) {
-    //     domObserver(document.getElementById(item.firstElementChild.id), function (el){
-    //     });
-    // }
 }
 
 export default basketCost

@@ -9,6 +9,7 @@ import telMask from "./modules/telMask"
 import modal from "./modules/modal";
 import serviceScroll from "./modules/serviceScroll";
 import countItem from "./modules/countItem";
+import favoriteItem from "./modules/favoriteItem"
 
 
 checkboxTotalBtn();
@@ -20,5 +21,6 @@ itemDelete();
 tooltip();
 telMask();
 modal();
-serviceScroll()
-countItem()
+serviceScroll();
+countItem();
+favoriteItem();
