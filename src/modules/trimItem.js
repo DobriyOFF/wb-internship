@@ -1,6 +1,6 @@
 const slicer = () => {
     let itemProductTitle = document.querySelectorAll('.item__product-title');
-    const mediaQuery = window.matchMedia('(max-width: 400px)')
+    const mediaQuery = window.matchMedia('(max-width: 420px)')
 
     itemProductTitle.forEach(item => {
         if (mediaQuery.matches) {
