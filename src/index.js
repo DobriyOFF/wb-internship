@@ -10,6 +10,7 @@ import modal from "./modules/modal";
 import serviceScroll from "./modules/serviceScroll";
 import countItem from "./modules/countItem";
 import favoriteItem from "./modules/favoriteItem"
+import trimItem from "./modules/trimItem"
 
 
 checkboxTotalBtn();
@@ -24,3 +25,4 @@ modal();
 serviceScroll();
 countItem();
 favoriteItem();
+trimItem();
